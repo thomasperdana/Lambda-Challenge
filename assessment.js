@@ -7,8 +7,8 @@ After writing your function uncomment the matching function reference at the bot
 // 1. Write a function called helloWorld that returns the string 'Hello World!'.
 
 function helloWorld() {
-
-}
+  return 'Hello World!';
+};
 
 /*
 2. Write a function called lambdaSchool that has a single parameter called num.
@@ -23,9 +23,53 @@ function helloWorld() {
              lambdaSchool(8); // returns 8
 */
 
-function lambdaSchool() {
+function lambdaSchool(num) {
+  if (!(num % 3 === 0 || num % 5 === 0)) {
+    return num;  
+  } else if ((num % 3 === 0) && (num % 5 === 0)) {
+    return 'Lambda School';    
+  } else if (num % 5 === 0) {
+    return 'School';
+  } else if (num % 3 === 0) {
+    return 'Lambda';
+  }; 
+};
 
-}
+
+// function lambdaSchool(num) {
+//   if ((num % 3 === 0) && (num % 5 === 0)) {
+//     return 'Lambda School';    
+//   } else if (num % 5 === 0) {
+//     return 'School';
+//   } else if (num % 3 === 0) {
+//     return 'Lambda';
+//   } else if (!(num % 3 === 0 || num % 5 === 0)) {
+//     return num; 
+//   };
+// };
+
+// lambdaSchool(10);
+
+
+// function lambdaSchool(num) {
+//   switch (num) {
+//     case ((num % 3 === 0) && (num % 5 === 0)): {
+//       return 'Lambda School'; 
+//     };
+//     case (num % 5 === 0) : {
+//       return 'School';
+//     };
+//     case (num % 3 === 0) : {
+//       return 'Lambda';
+//     };
+//     case (!(num % 3 === 0 || num % 5 === 0)) : {
+//       return num;
+//     };
+//   };
+// };
+
+// lambdaSchool(15);
+
 
 /*
 3. Write a function called longestString that has a single parameter called strs.
@@ -38,8 +82,35 @@ function lambdaSchool() {
              longestString(['JavaScript', 'HTML', 'CSS']); // returns 'JavaScript'
 */
 
-function longestString() {
-
+function longestString(strs) {
+  //let strs = ['test 1', 'test 12', 'test 23', 'test 123', 'test 333', 'test 4444', 'test 1234', 'test 44', 'test 321', 'test 4321'];
+  let longest = null;
+  let tie = null;
+  if (strs.length > 0) {
+    console.log(strs.length);
+    longest = strs[0];
+    console.log(longest);
+      if (strs.length > 1) {
+        console.log(strs.length);
+        for (let i = 1; i <= strs.length - 1; i++) {
+          console.log(i);
+          if (strs[i].length === longest.length) {
+            tie = longest;
+            console.log(tie);
+          } else if (strs[i].length > longest.length) {
+            longest = strs[i];
+            console.log(longest);
+          };
+        };
+    };
+  };
+  if (tie === null) {
+    console.log(longest);
+    return longest;
+  } else if (tie.length >= longest.length) {
+    console.log(tie);
+    return tie;
+  };
 }
 
 /*
@@ -63,9 +134,15 @@ function longestString() {
              computeUserAverageAge(users); // returns 62 (This number is rounded up from 61.6666)
 */
 
-function computeUserAverageAge() {
-
-}
+function computeUserAverageAge(users) {
+  let average = 0;
+  for (let i=0;i<=users.length-1;i++) {
+    console.log(i,users[i], users[i].age);
+    average = average + users[i].age
+  };
+  average = Math.ceil(average / users.length);
+  return average;
+};
 
 module.exports = {
  helloWorld,
